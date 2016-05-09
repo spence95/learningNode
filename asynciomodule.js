@@ -3,7 +3,7 @@ var fs = require('fs');
 module.exports = function(path, fileExtensionFilter, callback){
   fs.readdir(path, function(err, list){
     if(err){
-      callback(err);
+      return callback(err);
     }
       names = []
       list.forEach(function(fileName){
@@ -11,7 +11,7 @@ module.exports = function(path, fileExtensionFilter, callback){
           names.push(fileName);
         }
       });
-      callback(null, names);
+      return callback(null, names);
 
   });
 }
